@@ -11,10 +11,10 @@ public class QTabControl : TabControl
     private const string PointerBorderTemplateName = "PART_PointerBorder";
     private const string PaneContentGridTemplateName = "PART_PointerGrid";
     private static readonly PropertyPath MarginXPath = new("Margin");
-    private static readonly Point c_frame1point1 = new(0.9, 0.1);
-    private static readonly Point c_frame1point2 = new(1.0, 0.2);
-    private static readonly Point c_frame2point1 = new(0.1, 0.9);
-    private static readonly Point c_frame2point2 = new(0.2, 1.0);
+    private static readonly Point Frame1Point1 = new(0.9, 0.1);
+    private static readonly Point Frame1Point2 = new(1.0, 0.2);
+    private static readonly Point Frame2Point1 = new(0.1, 0.9);
+    private static readonly Point Frame2Point2 = new(0.2, 1.0);
 
     private static readonly object DefaultLineLeftRight = 3.0;
 
@@ -25,8 +25,8 @@ public class QTabControl : TabControl
     private double? _lastItemWidth;
 
     private Point _lastPoint;
-    private Grid m_paneContentGrid;
-    private Border m_pointerRectangle;
+    private Grid m_pointerGrid;
+    private Border m_pointerBorder;
 
     static QTabControl()
     {
@@ -36,7 +36,7 @@ public class QTabControl : TabControl
 
     public QTabControl()
     {
-        SizeChanged += QTabControl_SizeChanged;
+        //SizeChanged += QTabControl_SizeChanged;
     }
 
     public double LineLeftRight
@@ -45,21 +45,27 @@ public class QTabControl : TabControl
         set => SetValue(LineLeftRightProperty, value);
     }
 
+    private TabItem? _lastSelectedItem;
     private void QTabControl_SizeChanged(object sender, SizeChangedEventArgs e)
     {
-        if (SelectedItem is TabItem tabItem)
-            UpdateRepeaterItemsSource(tabItem);
-        else if (ItemContainerGenerator.ContainerFromItem(SelectedItem) is TabItem tabItem2)
-            UpdateRepeaterItemsSource(tabItem2);
-        else
-            UpdateRepeaterItemsSource(null);
+        //if (SelectedItem is TabItem tabItem)
+        //{
+        //    UpdateRepeaterItemsSource(tabItem);
+        //}
+        //else if (ItemContainerGenerator.ContainerFromItem(SelectedItem) is TabItem tabItem2)
+        //{
+        //    UpdateRepeaterItemsSource(tabItem2);
+        //}
+        //else
+        //    UpdateRepeaterItemsSource(null);
     }
 
     public override void OnApplyTemplate()
     {
         base.OnApplyTemplate();
-        m_pointerRectangle = GetTemplateChild(PointerBorderTemplateName) as Border;
-        m_paneContentGrid = GetTemplateChild(PaneContentGridTemplateName) as Grid;
+        m_pointerBorder = GetTemplateChild(PointerBorderTemplateName) as Border;
+        m_pointerGrid = GetTemplateChild(PaneContentGridTemplateName) as Grid;
+        m_pointerGrid.SizeChanged += QTabControl_SizeChanged;
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
@@ -89,9 +95,9 @@ public class QTabControl : TabControl
     {
         if (selectedUiElement?.IsLoaded == false)
         {
-            selectedUiElement.Arrange(new Rect(0, 0, m_paneContentGrid.ActualWidth, m_paneContentGrid.ActualHeight));
-            selectedUiElement.Measure(new Size(m_paneContentGrid.ActualWidth, m_paneContentGrid.ActualHeight));
-            m_pointerRectangle.Visibility = Visibility.Collapsed;
+            //selectedUiElement.Arrange(new Rect(0, 0, m_pointerGrid.ActualWidth, m_pointerGrid.ActualHeight));
+            //selectedUiElement.Measure(new Size(m_pointerGrid.ActualWidth, m_pointerGrid.ActualHeight));
+            m_pointerBorder.Visibility = Visibility.Collapsed;
             //return;
         }
 
@@ -103,13 +109,17 @@ public class QTabControl : TabControl
         if (items == null) return;
         if (selectedUiElement == null)
         {
-            m_pointerRectangle.Visibility = Visibility.Collapsed;
+            m_pointerBorder.Visibility = Visibility.Collapsed;
             return;
         }
 
-        m_pointerRectangle.Visibility = Visibility.Visible;
+        m_pointerBorder.Visibility = Visibility.Visible;
 
-        var point = selectedUiElement.TranslatePoint(new Point(), m_paneContentGrid);
+        var point = selectedUiElement.TranslatePoint(new Point(), m_pointerGrid);
+        if (point.X < 0)
+        {
+            point = new Point(0, point.Y);
+        }
         var currentItemWidth = selectedUiElement.RenderSize.Width;
         var storyboard = new Storyboard();
         var da = new ThicknessAnimationUsingKeyFrames();
@@ -119,12 +129,12 @@ public class QTabControl : TabControl
             {
                 new SplineThicknessKeyFrame(
                     new Thickness(_lastPoint.X + LineLeftRight, 0,
-                        m_paneContentGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
-                    KeyTime.FromPercent(0.333), new KeySpline(c_frame1point1, c_frame1point2)),
+                        m_pointerGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
+                    KeyTime.FromPercent(0.333), new KeySpline(Frame1Point1, Frame1Point2)),
                 new SplineThicknessKeyFrame(
                     new Thickness(point.X + LineLeftRight, 0,
-                        m_paneContentGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
-                    KeyTime.FromPercent(1.0), new KeySpline(c_frame2point1, c_frame2point2))
+                        m_pointerGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
+                    KeyTime.FromPercent(1.0), new KeySpline(Frame2Point1, Frame2Point2))
             };
             da.Duration = TimeSpan.FromMilliseconds(600);
         }
@@ -134,21 +144,21 @@ public class QTabControl : TabControl
             {
                 new SplineThicknessKeyFrame(
                     new Thickness(point.X + LineLeftRight, 0,
-                        (m_paneContentGrid.ActualWidth - _lastPoint.X - _lastItemWidth ?? currentItemWidth) +
-                        LineLeftRight, 0), KeyTime.FromPercent(0.333), new KeySpline(c_frame1point1, c_frame1point2)),
+                        (m_pointerGrid.ActualWidth - _lastPoint.X - _lastItemWidth ?? currentItemWidth) +
+                        LineLeftRight, 0), KeyTime.FromPercent(0.333), new KeySpline(Frame1Point1, Frame1Point2)),
                 new SplineThicknessKeyFrame(
                     new Thickness(point.X + LineLeftRight, 0,
-                        m_paneContentGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
-                    KeyTime.FromPercent(1.0), new KeySpline(c_frame2point1, c_frame2point2))
+                        m_pointerGrid.ActualWidth - point.X - currentItemWidth + LineLeftRight, 0),
+                    KeyTime.FromPercent(1.0), new KeySpline(Frame2Point1, Frame2Point2))
             };
             da.Duration = TimeSpan.FromMilliseconds(600);
         }
 
-        Storyboard.SetTarget(da, m_pointerRectangle);
+        Storyboard.SetTarget(da, m_pointerBorder);
         Storyboard.SetTargetProperty(da, MarginXPath);
         storyboard.Children.Add(da);
+   
         storyboard.Begin();
-        storyboard.Completed += (s, e) => { };
         _lastPoint = point;
         _lastItemWidth = currentItemWidth;
     }

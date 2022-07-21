@@ -17,23 +17,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <LinearGradientBrush x:Key="TabItem.Static.Background" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Offset="0.0" Color="#F0F0F0" />
-        <GradientStop Offset="1.0" Color="#E5E5E5" />
-    </LinearGradientBrush>
-    <SolidColorBrush x:Key="TabItem.Static.Border" Color="#ACACAC" />
-    <LinearGradientBrush x:Key="TabItem.MouseOver.Background" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Offset="0.0" Color="#ECF4FC" />
-        <GradientStop Offset="1.0" Color="#DCECFC" />
-    </LinearGradientBrush>
-    <SolidColorBrush x:Key="TabItem.MouseOver.Border" Color="#7EB4EA" />
-    <SolidColorBrush x:Key="TabItem.Selected.Background" Color="#FFFFFF" />
-    <SolidColorBrush x:Key="TabItem.Selected.Border" Color="#ACACAC" />
-    <SolidColorBrush x:Key="TabItem.Disabled.Background" Color="#F0F0F0" />
-    <SolidColorBrush x:Key="TabItem.Disabled.Border" Color="#D9D9D9" />
     <Style x:Key="BaseTabItemStyle" TargetType="{x:Type TabItem}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="{x:Null}" />
         <Setter Property="BorderBrush" Value="{x:Null}" />
         <Setter Property="Margin" Value="0" />
@@ -59,11 +49,69 @@
                             Focusable="False"
                             RecognizesAccessKey="True"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Border
+                            x:Name="PART_PointerBorder"
+                            Height="3"
+                            Margin="6,0"
+                            VerticalAlignment="Bottom"
+                            Background="{DynamicResource PrimaryHueMidBrush}"
+                            CornerRadius="3 3 0 0"
+                            Opacity="0" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                            <Setter Property="Opacity" Value="1" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetName="PART_PointerBorder">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.56"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetName="PART_PointerBorder">
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="false" />
+                                <Condition Property="IsSelected" Value="false" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="0.7"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetProperty="Opacity"
+                                            To="1"
+                                            Duration="0:0:0.3" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+
+
+                        </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".56" />
                         </Trigger>
@@ -71,6 +119,7 @@
                             <Setter Property="Panel.ZIndex" Value="1" />
                             <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
                         </Trigger>
+
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -84,9 +133,16 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{x:Null}" />
-        <Setter Property="BorderBrush" Value="{x:Null}" />
-        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0,1,0,0" />
         <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:QTabControl}">
@@ -108,6 +164,7 @@
                             Grid.Row="0"
                             Grid.Column="0"
                             Margin="2,2,2,0"
+                            HorizontalAlignment="Left"
                             Panel.ZIndex="1"
                             Background="Transparent"
                             IsItemsHost="true"
@@ -116,16 +173,12 @@
                             x:Name="PART_PointerGrid"
                             Grid.Row="0"
                             Grid.Column="0"
+                            Width="{Binding ElementName=headerPanel, Path=ActualWidth}"
+                            Height="{Binding ElementName=headerPanel, Path=ActualHeight}"
                             Margin="2,2,2,0"
-                            Panel.ZIndex="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-
-                            <ItemsPresenter
-                                Grid.ColumnSpan="9999"
-                                Margin="{TemplateBinding Padding}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            HorizontalAlignment="Left"
+                            Panel.ZIndex="1"
+                            IsHitTestVisible="False">
                             <Border
                                 x:Name="PART_PointerBorder"
                                 Height="3"
@@ -155,36 +208,40 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="TabStripPlacement" Value="Bottom">
                             <Setter TargetName="headerPanel" Property="Grid.Row" Value="1" />
-                            <Setter TargetName="PART_PointerBorder" Property="Grid.Row" Value="1" />
+                            <Setter TargetName="PART_PointerGrid" Property="Grid.Row" Value="1" />
                             <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
                             <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
                             <Setter TargetName="RowDefinition1" Property="Height" Value="Auto" />
                             <Setter TargetName="headerPanel" Property="Margin" Value="2,0,2,2" />
-                            <Setter TargetName="PART_PointerBorder" Property="Margin" Value="2,0,2,2" />
+                            <Setter TargetName="PART_PointerGrid" Property="Margin" Value="2,0,2,2" />
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Left">
                             <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="PART_PointerBorder" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_PointerGrid" Property="Grid.Row" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
                             <Setter TargetName="headerPanel" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="PART_PointerGrid" Property="Grid.Column" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Column" Value="1" />
                             <Setter TargetName="ColumnDefinition0" Property="Width" Value="Auto" />
                             <Setter TargetName="ColumnDefinition1" Property="Width" Value="*" />
                             <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
                             <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
                             <Setter TargetName="headerPanel" Property="Margin" Value="2,2,0,2" />
+                            <Setter TargetName="PART_PointerGrid" Property="Margin" Value="2,2,0,2" />
                         </Trigger>
                         <Trigger Property="TabStripPlacement" Value="Right">
                             <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="PART_PointerBorder" Property="Grid.Row" Value="0" />
+                            <Setter TargetName="PART_PointerGrid" Property="Grid.Row" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
                             <Setter TargetName="headerPanel" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="PART_PointerGrid" Property="Grid.Column" Value="1" />
                             <Setter TargetName="contentPanel" Property="Grid.Column" Value="0" />
                             <Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
                             <Setter TargetName="ColumnDefinition1" Property="Width" Value="Auto" />
                             <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
                             <Setter TargetName="RowDefinition1" Property="Height" Value="0" />
                             <Setter TargetName="headerPanel" Property="Margin" Value="0,2,2,2" />
+                            <Setter TargetName="PART_PointerGrid" Property="Margin" Value="0,2,2,2" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter TargetName="templateRoot" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />

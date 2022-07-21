@@ -26,408 +26,415 @@
     </Window.Template>-->
     <DockPanel x:Name="panel" Background="#dedede">
         <qc:TitleBar DockPanel.Dock="Top" Icon="pack://application:,,,/Resources/章鱼.png" />
-        <Grid DockPanel.Dock="Bottom" />
-        <Border CornerRadius="{StaticResource ControlCornerRadius}" />
-        <WrapPanel>
-            <qc:SimpleButton Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123" />
-            <qc:SimpleButton Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
+        <qc:QTabControl
+            Grid.Row="1"
+            Background="Transparent"
+            TabStripPlacement="Top">
+            <TabItem Header="Tasks">
+                <WrapPanel>
+                    <qc:SimpleButton Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123" />
+                    <qc:SimpleButton Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
 
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.CornerRadius="9 9 0 0"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource PrimaryDashedSimpleButton}" />
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.CornerRadius="6"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource PrimaryDashedSimpleButton}" />
-            <qc:SimpleButton
-                Height="40"
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource PrimaryDefaultSimpleButton}" />
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123456"
-                Style="{StaticResource PrimaryDefaultSimpleButton}" />
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123456" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.CornerRadius="9 9 0 0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource PrimaryDashedSimpleButton}" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.CornerRadius="6"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource PrimaryDashedSimpleButton}" />
+                    <qc:SimpleButton
+                        Height="40"
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource PrimaryDefaultSimpleButton}" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123456"
+                        Style="{StaticResource PrimaryDefaultSimpleButton}" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123456" />
 
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                qc:ControlsHelper.ThemeType="Light"
-                Content="123456"
-                Style="{StaticResource ThemeSimpleButton}" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        qc:ControlsHelper.ThemeType="Light"
+                        Content="123456"
+                        Style="{StaticResource ThemeSimpleButton}" />
 
-            <qc:SimpleButton
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123456"
-                Style="{StaticResource ThemeSimpleButton}" />
-            <Button Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123"
-                Style="{StaticResource ButtonPrimary}" />
-            <Button
-                Height="40"
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource ButtonPrimary}" />
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource ButtonLink}" />
-            <Button
-                Height="40"
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource ButtonLink}" />
+                    <qc:SimpleButton
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123456"
+                        Style="{StaticResource ThemeSimpleButton}" />
+                    <Button Margin="20,0,0,0" qc:ControlsHelper.Icon="Sack" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123"
+                        Style="{StaticResource ButtonPrimary}" />
+                    <Button
+                        Height="40"
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource ButtonPrimary}" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource ButtonLink}" />
+                    <Button
+                        Height="40"
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource ButtonLink}" />
 
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.CornerRadius="9 9 9 9"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource ButtonDashed}" />
-            <Button
-                Height="40"
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack"
-                Style="{StaticResource ButtonDashedPrimary}" />
-            <Button
-                Height="40"
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Circular="True"
-                qc:ControlsHelper.Icon="Sack" />
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123456" />
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                qc:ControlsHelper.ThemeType="Light"
-                Content="123456" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.CornerRadius="9 9 9 9"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource ButtonDashed}" />
+                    <Button
+                        Height="40"
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack"
+                        Style="{StaticResource ButtonDashedPrimary}" />
+                    <Button
+                        Height="40"
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Circular="True"
+                        qc:ControlsHelper.Icon="Sack" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123456" />
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        qc:ControlsHelper.ThemeType="Light"
+                        Content="123456" />
 
-            <Button
-                Margin="20,0,0,0"
-                qc:ControlsHelper.Icon="Sack"
-                Content="123456" />
-            <TextBox Margin="20,0,0,0">123456</TextBox>
-            <TextBox Margin="20,0,0,0" AcceptsReturn="True">123456</TextBox>
-            <Button
-                Margin="12"
-                Background="Red"
-                Style="{StaticResource ButtonNeuomorphism}" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6,0"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Shape="Pressed"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-            <qc:NeuomorphismBox
-                Width="40"
-                Height="40"
-                Margin="6"
-                Blur="9"
-                CornerRadius="9"
-                Distance="6"
-                Color="#dedede" />
-        </WrapPanel>
+                    <Button
+                        Margin="20,0,0,0"
+                        qc:ControlsHelper.Icon="Sack"
+                        Content="123456" />
+                    <TextBox Margin="20,0,0,0">123456</TextBox>
+                    <TextBox Margin="20,0,0,0" AcceptsReturn="True">123456</TextBox>
+                    <Button
+                        Margin="12"
+                        Background="Red"
+                        Style="{StaticResource ButtonNeuomorphism}" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6,0"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Shape="Pressed"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                    <qc:NeuomorphismBox
+                        Width="40"
+                        Height="40"
+                        Margin="6"
+                        Blur="9"
+                        CornerRadius="9"
+                        Distance="6"
+                        Color="#dedede" />
+                </WrapPanel>
+            </TabItem>
+            <TabItem Header="123" />
+            <TabItem Header="12345678" />
+        </qc:QTabControl>
     </DockPanel>
 </qc:QWindow>
