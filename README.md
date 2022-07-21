@@ -1,1 +1,2 @@
 # QuickControl
+WPF Custom Control
