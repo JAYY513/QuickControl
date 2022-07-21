@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickControl", "QuickControl\QuickControl.csproj", "{F2371B24-024D-4C63-AB65-0583BE99A2F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDemo", "QuickDemo\QuickDemo.csproj", "{C20B602B-C98E-4B9F-9C05-2A9ACDEB52FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestModules", "TestModules\TestModules.csproj", "{3325621E-CB4A-44F0-BD54-AAD8D8B5ECA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{6C9D270F-AFA6-457A-9A5A-442504C02E74}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Windows.Interactivity", "Shared\System.Windows.Interactivity\System.Windows.Interactivity.shproj", "{6F0C9CFF-2269-46A7-9664-478354C582A4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Windows.Shell", "Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.shproj", "{BBE51380-8B21-49FF-9CFC-B29447A40999}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Expression.Interactions", "Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.shproj", "{3531857C-28FC-4E0F-82D9-BFBB70740E04}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Expression.Drawing", "Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.shproj", "{E5DC7C25-6293-4660-B5FB-186496386B90}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "QuickControl.Shared", "Shared\QuickControl.Shared\QuickControl.Shared.shproj", "{8A4A4D72-A4A4-427B-B39E-A4F953F07128}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickControl.Colors", "QuickControl.Colors\QuickControl.Colors.csproj", "{2732EE26-7617-496C-9453-0C034BE941CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2371B24-024D-4C63-AB65-0583BE99A2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2371B24-024D-4C63-AB65-0583BE99A2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2371B24-024D-4C63-AB65-0583BE99A2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2371B24-024D-4C63-AB65-0583BE99A2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20B602B-C98E-4B9F-9C05-2A9ACDEB52FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20B602B-C98E-4B9F-9C05-2A9ACDEB52FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20B602B-C98E-4B9F-9C05-2A9ACDEB52FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20B602B-C98E-4B9F-9C05-2A9ACDEB52FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3325621E-CB4A-44F0-BD54-AAD8D8B5ECA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3325621E-CB4A-44F0-BD54-AAD8D8B5ECA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3325621E-CB4A-44F0-BD54-AAD8D8B5ECA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3325621E-CB4A-44F0-BD54-AAD8D8B5ECA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2732EE26-7617-496C-9453-0C034BE941CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2732EE26-7617-496C-9453-0C034BE941CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2732EE26-7617-496C-9453-0C034BE941CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2732EE26-7617-496C-9453-0C034BE941CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F0C9CFF-2269-46A7-9664-478354C582A4} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+		{BBE51380-8B21-49FF-9CFC-B29447A40999} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+		{3531857C-28FC-4E0F-82D9-BFBB70740E04} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+		{E5DC7C25-6293-4660-B5FB-186496386B90} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+		{8A4A4D72-A4A4-427B-B39E-A4F953F07128} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+		{2732EE26-7617-496C-9453-0C034BE941CB} = {6C9D270F-AFA6-457A-9A5A-442504C02E74}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53BABA74-3A62-443D-9BE7-4E0A5FC0B173}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.projitems*{3531857c-28fc-4e0f-82d9-bfbb70740e04}*SharedItemsImports = 13
+		Shared\System.Windows.Interactivity\System.Windows.Interactivity.projitems*{6f0c9cff-2269-46a7-9664-478354c582a4}*SharedItemsImports = 13
+		Shared\QuickControl.Shared\QuickControl_Shared.projitems*{8a4a4d72-a4a4-427b-b39e-a4f953f07128}*SharedItemsImports = 13
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{bbe51380-8b21-49ff-9cfc-b29447a40999}*SharedItemsImports = 13
+		Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems*{e5dc7c25-6293-4660-b5fb-186496386b90}*SharedItemsImports = 13
+		Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems*{f2371b24-024d-4c63-ab65-0583be99a2f7}*SharedItemsImports = 5
+		Shared\QuickControl.Shared\QuickControl_Shared.projitems*{f2371b24-024d-4c63-ab65-0583be99a2f7}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

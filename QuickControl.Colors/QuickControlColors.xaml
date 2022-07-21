@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/QuickControl.Colors;component/Assets/Palette.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl.Colors;component/Assets/Primary/QuickControlColors.DaybreakBlue.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl.Colors;component/Theme/Light.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/BaseResource.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Theme.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

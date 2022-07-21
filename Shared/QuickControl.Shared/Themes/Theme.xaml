@@ -1,0 +1,52 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:QuickControl.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:packIcon="clr-namespace:QuickControl.PackIcon"
+    xmlns:qc="QuickControl"
+    mc:Ignorable="d">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Assets/Variables.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/SimpleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/QWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/TitleBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/QTabControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/InnerShadowBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/Styles/NeuomorphismBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="{x:Type packIcon:PackIcon}">
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Width" Value="16" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type packIcon:PackIcon}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Viewbox FlowDirection="{TemplateBinding FlowDirection}">
+                            <Canvas Width="24" Height="24">
+                                <Path Data="{Binding Data, RelativeSource={RelativeSource TemplatedParent}}" Fill="{TemplateBinding Foreground}" />
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource PrimarySimpleButtonBaseStyle}" TargetType="{x:Type control:SimpleButton}" />
+    <Style BasedOn="{StaticResource ButtonDefault}" TargetType="{x:Type Button}" />
+    <Style BasedOn="{StaticResource DefaultTextBoxStyle}" TargetType="{x:Type TextBox}" />
+
+    <Style BasedOn="{StaticResource BaseTabItemStyle}" TargetType="{x:Type TabItem}" />
+    <Style BasedOn="{StaticResource TabControlBase}" TargetType="{x:Type control:QTabControl}" />
+    <!--<Style BasedOn="{StaticResource S.WindowButtonBar}" TargetType="{x:Type control:WindowButtonBar}" />-->
+</ResourceDictionary>

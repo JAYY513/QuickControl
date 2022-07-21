@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>8a4a4d72-a4a4-427b-b39e-a4f953f07128</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>QuickControl.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Appearance\Theme\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Markup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Appearance\BackgroundType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appearance\ThemeType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appearance\WindowCornerPreference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\IRelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RoutedNotifyIconEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ButtonProgressHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ControlsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ClientAreaBorder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\DashedBorder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\GeometryCreator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\InnerShadowBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NeuomorphismBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NeuomorphismBoxTemplateSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NeuomorphismLightSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NeuomorphismShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\NotifyIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\QTabControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\SimpleButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\QWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\TitleBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BorderBrushToDashDrawingBrushConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BorderThicknessToStrokeThicknessConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\CornerRadiusToRadiusConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ResourceToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ValueBoxes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dpi\Dpi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dpi\DpiChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dpi\DpiHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dpi\DpiHelper~.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ColorExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ContextMenuExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ValueExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\Dwmapi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\Gdi32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\Libraries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\Shell32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\ShObjIdl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\UnsafeNativeMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\UnsafeReflection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\User32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\UxTheme.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\POINT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\POINTL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\POINTS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\RECT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\RECTL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\RefPOINT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interop\WinDef\SIZE.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PackIcon\PackIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PackIcon\PackIconDataFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PackIcon\PackIconDataMarkup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PackIcon\PackIconKind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Taskbar\TaskbarProgress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Taskbar\TaskbarProgressState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ColorHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\WindowChromeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\Hicon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\INotifyIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\NotifyIconBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\TrayData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\TrayHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tray\TrayManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\Utilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\Win32Constant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Win32\WindowsRelease.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Assets\Variables.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\BaseResource.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\All.Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\InnerShadowBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\NeuomorphismBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\QTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\QWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\SimpleButton.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TitleBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Theme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+</Project>

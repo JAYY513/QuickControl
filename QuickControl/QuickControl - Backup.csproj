@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows,net5.0-windows</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controls\**" />
+    <Compile Remove="Data\**" />
+    <Compile Remove="Markup\**" />
+    <Compile Remove="Themes\**" />
+    <EmbeddedResource Remove="Controls\**" />
+    <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Markup\**" />
+    <EmbeddedResource Remove="Themes\**" />
+    <None Remove="Controls\**" />
+    <None Remove="Data\**" />
+    <None Remove="Markup\**" />
+    <None Remove="Themes\**" />
+    <Page Remove="Controls\**" />
+    <Page Remove="Data\**" />
+    <Page Remove="Markup\**" />
+    <Page Remove="Themes\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+  <Import Project="..\Shared\QuickControl.Shared\QuickControl_Shared.projitems" Label="Shared" />
+
+</Project>

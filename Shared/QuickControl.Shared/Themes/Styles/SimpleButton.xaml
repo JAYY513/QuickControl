@@ -1,0 +1,526 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:QuickControl.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:packIcon="clr-namespace:QuickControl.PackIcon"
+    xmlns:qc="clr-namespace:QuickControl.Controls"
+    mc:Ignorable="d">
+
+    <d:ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/QuickControl;component/Themes/BaseResource.xaml" />
+    </d:ResourceDictionary.MergedDictionaries>
+
+    <Storyboard x:Key="ButtonBase.Storyboard">
+        <ThicknessAnimation
+            AutoReverse="False"
+            By="-4"
+            FillBehavior="HoldEnd"
+            Storyboard.TargetName="Border"
+            Storyboard.TargetProperty="Margin"
+            From="0"
+            Duration="0:0:0.3" />
+        <DoubleAnimationUsingKeyFrames
+            Storyboard.TargetName="Border"
+            Storyboard.TargetProperty="Opacity"
+            Duration="0:0:1">
+            <DoubleAnimationUsingKeyFrames.KeyFrames>
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.1" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0.23" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0.18" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+            </DoubleAnimationUsingKeyFrames.KeyFrames>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <Storyboard x:Key="ThemeButtonBase.Storyboard">
+        <ThicknessAnimation
+            AutoReverse="False"
+            By="-4"
+            FillBehavior="HoldEnd"
+            Storyboard.TargetName="Border"
+            Storyboard.TargetProperty="Margin"
+            From="0"
+            Duration="0:0:0.3" />
+        <ThicknessAnimation
+            AutoReverse="False"
+            By="4"
+            FillBehavior="HoldEnd"
+            Storyboard.TargetName="Border"
+            Storyboard.TargetProperty="BorderThickness"
+            From="0"
+            Duration="0:0:0.3" />
+        <DoubleAnimationUsingKeyFrames
+            Storyboard.TargetName="Border"
+            Storyboard.TargetProperty="Opacity"
+            Duration="0:0:1">
+            <DoubleAnimationUsingKeyFrames.KeyFrames>
+                <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="0.21" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0.43" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="0.38" />
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="0" />
+            </DoubleAnimationUsingKeyFrames.KeyFrames>
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+
+    <ControlTemplate x:Key="SimpleButtonBase.ControlTemplate" TargetType="{x:Type qc:SimpleButton}">
+        <Grid>
+            <Border
+                Name="Border"
+                Margin="0"
+                Background="Transparent"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="4"
+                CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Opacity="0.0" />
+            <Border
+                x:Name="Background"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+            <Grid
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <packIcon:PackIcon
+                    x:Name="PackIcon"
+                    Margin="2,0"
+                    VerticalAlignment="Center"
+                    Kind="{TemplateBinding qc:ControlsHelper.Icon}" />
+                <ContentPresenter
+                    Grid.Column="1"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}"
+                    RecognizesAccessKey="True"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            </Grid>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="PackIcon" Property="Kind" Value="Abacus">
+                <Setter TargetName="PackIcon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <EventTrigger RoutedEvent="qc:SimpleButton.Click">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource ButtonBase.Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".7" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="DashedSimpleButtonBase.ControlTemplate" TargetType="{x:Type qc:SimpleButton}">
+        <Grid>
+            <Border
+                Name="Border"
+                Margin="0"
+                Background="Transparent"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="4"
+                CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Opacity="0.0" />
+            <Border
+                x:Name="Background"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush,
+                                              Converter={converters:BorderBrushToDashDrawingBrushConverter}}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+            <Grid
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <packIcon:PackIcon
+                    x:Name="PackIcon"
+                    Margin="2,0"
+                    VerticalAlignment="Center"
+                    Kind="{TemplateBinding qc:ControlsHelper.Icon}" />
+                <ContentPresenter
+                    Grid.Column="1"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}"
+                    RecognizesAccessKey="True"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            </Grid>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="PackIcon" Property="Kind" Value="Abacus">
+                <Setter TargetName="PackIcon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <EventTrigger RoutedEvent="qc:SimpleButton.Click">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource ButtonBase.Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Opacity" Value=".9" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Opacity" Value=".7" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="DashedRadiusXYSimpleButtonBase.ControlTemplate" TargetType="{x:Type qc:SimpleButton}">
+        <Grid>
+            <Border
+                Name="Border"
+                Margin="0"
+                Background="Transparent"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="4"
+                CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Opacity="0.0" />
+            <Rectangle
+                x:Name="Background"
+                RadiusX="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}, Converter={converters:CornerRadiusToRadiusConverter}}"
+                RadiusY="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}, Converter={converters:CornerRadiusToRadiusConverter}}"
+                Stroke="{TemplateBinding BorderBrush}"
+                StrokeDashArray="3 2"
+                StrokeThickness="{TemplateBinding BorderThickness,
+                                                  Converter={converters:BorderThicknessToStrokeThicknessConverter}}" />
+            <Grid
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <packIcon:PackIcon
+                    x:Name="PackIcon"
+                    Margin="2,0"
+                    VerticalAlignment="Center"
+                    Kind="{TemplateBinding qc:ControlsHelper.Icon}" />
+                <ContentPresenter
+                    Grid.Column="1"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}"
+                    RecognizesAccessKey="True"
+                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            </Grid>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger SourceName="PackIcon" Property="Kind" Value="Abacus">
+                <Setter TargetName="PackIcon" Property="Visibility" Value="Collapsed" />
+            </Trigger>
+            <EventTrigger RoutedEvent="qc:SimpleButton.Click">
+                <EventTrigger.Actions>
+                    <BeginStoryboard Storyboard="{StaticResource ButtonBase.Storyboard}" />
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Opacity" Value=".9" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Opacity" Value=".7" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="PrimarySimpleButtonBaseStyle" TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="TextBlock.FontWeight" Value="Medium" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="TextBlock.FontSize" Value="14" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10,4,10,4" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="qc:ControlsHelper.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="Template" Value="{StaticResource SimpleButtonBase.ControlTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".4" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="PrimaryDefaultSimpleButton"
+        BasedOn="{StaticResource PrimarySimpleButtonBaseStyle}"
+        TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="ThemeSimpleButton"
+        BasedOn="{StaticResource PrimarySimpleButtonBaseStyle}"
+        TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="{DynamicResource ControlFillColorDefaultBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type qc:SimpleButton}">
+                    <Grid>
+                        <Border
+                            Name="Border"
+                            Margin="0"
+                            Background="Transparent"
+                            BorderBrush="{DynamicResource ControlStrokeColorSecondaryBrush}"
+                            BorderThickness="0"
+                            CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            Opacity="0.0" />
+                        <Border
+                            x:Name="Background"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                        <Grid
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <packIcon:PackIcon
+                                x:Name="PackIcon"
+                                Margin="2,0"
+                                VerticalAlignment="Center"
+                                Kind="{TemplateBinding qc:ControlsHelper.Icon}" />
+                            <ContentPresenter
+                                Grid.Column="1"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="PackIcon" Property="Kind" Value="Abacus">
+                            <Setter TargetName="PackIcon" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <EventTrigger RoutedEvent="qc:SimpleButton.Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard Storyboard="{StaticResource ThemeButtonBase.Storyboard}" />
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".9" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".7" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorTertiaryBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TextFillColorSecondaryBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{DynamicResource ControlFillColorDisabledBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlStrokeColorDefaultBrush}" />
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource TextFillColorDisabledBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--<Style
+        x:Key="QDashedSimpleButton"
+        BasedOn="{StaticResource SimpleButtonBaseStyle}"
+        TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource DashedBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Style.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryDashedHueMidBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryDashedHueLightBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueLightBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryDashedHueDarkBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>-->
+
+    <Style
+        x:Key="PrimaryDashedSimpleButton"
+        BasedOn="{StaticResource PrimarySimpleButtonBaseStyle}"
+        TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlStrongStrokeColorDisabledBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+        <Setter Property="Template" Value="{StaticResource DashedSimpleButtonBase.ControlTemplate}" />
+        <Style.Triggers>
+            <Trigger Property="qc:ControlsHelper.Circular" Value="True">
+                <Setter Property="Template" Value="{StaticResource DashedRadiusXYSimpleButtonBase.ControlTemplate}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="S.SimpleButton" TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="SkyBlue" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type qc:SimpleButton}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{StaticResource ControlCornerRadius}">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Opacity" Value=".8" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value=".56" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="S.Icon.SimpleButton" TargetType="{x:Type qc:SimpleButton}">
+        <Setter Property="Background" Value="SkyBlue" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type qc:SimpleButton}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <ContentPresenter
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Opacity" Value="1" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Opacity" Value=".8" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value=".56" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="S.Icon2.SimpleButton" TargetType="qc:SimpleButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="qc:ControlsHelper.CornerRadius" Value="{StaticResource ControlCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(qc:ControlsHelper.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <ContentControl
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path
+                                Width="{TemplateBinding qc:ControlsHelper.Width}"
+                                Height="{TemplateBinding qc:ControlsHelper.Height}"
+                                Data="{TemplateBinding qc:ControlsHelper.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
